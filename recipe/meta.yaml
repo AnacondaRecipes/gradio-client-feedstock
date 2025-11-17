@@ -10,22 +10,21 @@ source:
   sha256: 869b3e67e0f7a0f40df8c48c94de99183265cf4b7b1d9bd4623e336d219ffbe7
 
 build:
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python {{ python_min }}
+    - python
     - hatchling
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
     - pip
   run:
-    - python >={{ python_min }}
+    - python
     - fsspec
     - httpx >=0.24.1
-    - huggingface_hub >=0.19.3
+    - huggingface_hub >=0.19.3,<2.0
     - packaging
     - typing_extensions ~=4.0
     - websockets >=10.0,<16.0
@@ -37,14 +36,16 @@ test:
     - pip check
   requires:
     - pip
-    - python {{ python_min }}
 
 about:
   home: https://pypi.org/project/gradio-client/
+  doc_url: https://www.gradio.app/
   dev_url: https://github.com/gradio-app/gradio
   summary: Python library for easily interacting with trained machine learning models
+  description: Python library for easily interacting with trained machine learning models
   license: Apache-2.0
   license_file: LICENSE
+  license_family: Apache
 
 extra:
   recipe-maintainers:

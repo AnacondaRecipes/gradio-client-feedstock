@@ -1,33 +1,33 @@
 {% set name = "gradio-client" %}
-{% set version = "1.13.3" %}
+{% set version = "2.5.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/gradio_client-{{ version }}.tar.gz
-  sha256: 869b3e67e0f7a0f40df8c48c94de99183265cf4b7b1d9bd4623e336d219ffbe7
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
+  sha256: 4cde99bad62149595c30c90876ca2e405e3a13687ecf895474f3412cb476673d
 
 build:
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  skip: true  # [py<310]
 
 requirements:
   host:
+    - pip
     - python
     - hatchling
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
-    - pip
   run:
     - python
     - fsspec
     - httpx >=0.24.1
     - huggingface_hub >=0.19.3,<2.0
     - packaging
-    - typing_extensions ~=4.0
-    - websockets >=10.0,<16.0
+    - typing_extensions >=4.0,<5
 
 test:
   imports:
@@ -38,8 +38,8 @@ test:
     - pip
 
 about:
-  home: https://pypi.org/project/gradio-client/
-  doc_url: https://www.gradio.app/
+  home: https://pypi.org/project/gradio-client
+  doc_url: https://www.gradio.app
   dev_url: https://github.com/gradio-app/gradio
   summary: Python library for easily interacting with trained machine learning models
   description: Python library for easily interacting with trained machine learning models

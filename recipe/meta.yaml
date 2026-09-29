@@ -1,5 +1,5 @@
 {% set name = "gradio-client" %}
-{% set version = "2.5.0" %}
+{% set version = "2.7.1" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
-  sha256: 4cde99bad62149595c30c90876ca2e405e3a13687ecf895474f3412cb476673d
+  sha256: 2c629110496dbca67a848cd70add8cf5c3a24776404a2c5ef4fd759c7c2c33c4
 
 build:
   number: 0
@@ -18,7 +18,7 @@ requirements:
   host:
     - pip
     - python
-    - hatchling
+    - hatchling >=1.27
     - hatch-requirements-txt
     - hatch-fancy-pypi-readme >=22.5.0
   run:

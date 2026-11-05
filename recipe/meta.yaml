@@ -1,5 +1,5 @@
 {% set name = "gradio-client" %}
-{% set version = "2.7.1" %}
+{% set version = "2.7.2" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name.replace('-', '_')}}-{{ version }}.tar.gz
-  sha256: 2c629110496dbca67a848cd70add8cf5c3a24776404a2c5ef4fd759c7c2c33c4
+  sha256: 5b568b8189b86cfdacab39fecc2ee66900348cdd83a1c0bb968a98c83eafc198
 
 build:
   number: 0
@@ -25,7 +25,7 @@ requirements:
     - python
     - fsspec
     - httpx >=0.24.1
-    - huggingface_hub >=0.19.3,<2.0
+    - huggingface_hub >=1.16.0,<3.0
     - packaging
     - typing_extensions >=4.0,<5
 
@@ -40,7 +40,7 @@ test:
 about:
   home: https://pypi.org/project/gradio-client
   doc_url: https://www.gradio.app
-  dev_url: https://github.com/gradio-app/gradio
+  dev_url: https://github.com/gradio-app/gradio/tree/main/client/python
   summary: Python library for easily interacting with trained machine learning models
   description: Python library for easily interacting with trained machine learning models
   license: Apache-2.0

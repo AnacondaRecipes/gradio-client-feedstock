@@ -40,7 +40,7 @@ test:
 about:
   home: https://pypi.org/project/gradio-client
   doc_url: https://www.gradio.app
-  dev_url: https://github.com/gradio-app/gradio
+  dev_url: https://github.com/gradio-app/gradio/tree/main/client/python
   summary: Python library for easily interacting with trained machine learning models
   description: Python library for easily interacting with trained machine learning models
   license: Apache-2.0
